@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blinds To Go | Factory Direct, Made to Measure Blinds Auckland</title>
+<meta name="description" content="Blinds To Go: factory-direct, made-to-measure roller, vertical, venetian, wooden and aluminium blinds and curtains in Auckland. Free measure and quote.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23121212'/%3E%3Ctext x='29' y='49' text-anchor='middle' font-family='Arial Rounded MT Bold,Arial Black,Arial,sans-serif' font-weight='900' font-size='50' fill='%23D61F3C'%3Eb%3C/text%3E%3Ccircle cx='50' cy='45' r='6' fill='%23A4C520'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#D61F3C;
+    --red-deep:#A8142C;
+    --lime:#A4C520;
+    --lime-soft:#C9DF6E;
+    --ink:#121212;
+    --charcoal:#1C1C1C;
+    --graphite:#2A2A2A;
+    --ivory:#F8F5EF;
+    --sand:#EEE8DC;
+    --line:rgba(18,18,18,.12);
+    --line-light:rgba(255,255,255,.14);
+    --muted:#6A665F;
+    --serif:'Cormorant Garamond', Georgia, serif;
+    --sans:'Manrope', system-ui, -apple-system, Segoe UI, sans-serif;
+    --logo:'Baloo 2', 'Manrope', sans-serif;
+    --ease:cubic-bezier(.22,.8,.24,1);
+    --max:1240px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--ivory);color:var(--ink);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+  .eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;font-weight:600;color:var(--red);display:inline-flex;align-items:center;gap:14px}
+  .eyebrow::before{content:"";width:34px;height:1px;background:currentColor}
+  .eyebrow.lime{color:var(--lime)}
+  h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.08;letter-spacing:-.01em}
+  h2{font-size:clamp(2.3rem,4.6vw,3.8rem);margin:18px 0 22px}
+  h2 em,h1 em{font-style:italic;color:var(--red)}
+  .lead{font-size:1.06rem;color:var(--muted);max-width:560px}
+
+  /* Logo */
+  .logo{font-family:var(--logo);font-weight:800;font-size:1.9rem;letter-spacing:-.02em;line-height:1;display:inline-flex;flex-direction:column}
+  .logo .word{display:flex}
+  .logo .r{color:var(--red)} .logo .k{color:var(--ink)} .logo .g{color:var(--lime)}
+  .logo small{font-family:var(--sans);font-size:.56rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+  .on-dark .logo .k{color:#fff}
+  .on-dark .logo small{color:rgba(255,255,255,.55)}
+
+  /* Buttons */
+  .btn{display:inline-flex;align-items:center;gap:12px;padding:16px 30px;font-family:var(--sans);font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;border:1px solid transparent;cursor:pointer;transition:all .45s var(--ease);position:relative;overflow:hidden}
+  .btn svg{width:16px;height:16px;transition:transform .45s var(--ease)}
+  .btn:hover svg{transform:translateX(4px)}
+  .btn-red{background:var(--red);color:#fff}
+  .btn-red:hover{background:var(--red-deep)}
+  .btn-ghost{border-color:rgba(255,255,255,.35);color:#fff}
+  .btn-ghost:hover{border-color:var(--lime);color:var(--lime)}
+  .btn-dark{background:var(--ink);color:#fff}
+  .btn-dark:hover{background:var(--red)}
+
+  /* Header */
+  header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .5s var(--ease),box-shadow .5s var(--ease),padding .5s var(--ease);padding:22px 0}
+  header.scrolled{background:rgba(248,245,239,.94);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);padding:12px 0}
+  header:not(.scrolled){color:#fff}
+  header:not(.scrolled) .logo .k{color:#fff}
+  header:not(.scrolled) .logo small{color:rgba(255,255,255,.6)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .nav ul{display:flex;gap:38px;list-style:none}
+  .nav ul a{font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;position:relative;padding:6px 0}
+  .nav ul a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--red);transition:width .4s var(--ease)}
+  .nav ul a:hover::after{width:100%}
+  .nav .btn{padding:12px 22px}
+  .menu-btn{display:none;background:none;border:0;color:inherit;cursor:pointer;width:42px;height:42px}
+  .menu-btn span{display:block;width:24px;height:1.5px;background:currentColor;margin:6px auto;transition:transform .4s var(--ease),opacity .3s}
+  .menu-open .menu-btn span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+  .menu-open .menu-btn span:nth-child(2){opacity:0}
+  .menu-open .menu-btn span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+  /* Hero */
+  .hero{background:var(--charcoal);color:#fff;min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:140px 0 100px}
+  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(900px 600px at 85% 30%,rgba(164,197,32,.10),transparent 60%),radial-gradient(700px 500px at 5% 100%,rgba(214,31,60,.16),transparent 60%)}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center;position:relative}
+  .hero h1{font-size:clamp(3rem,6.6vw,5.8rem);margin:26px 0 28px;font-weight:400}
+  .hero h1 em{color:var(--lime)}
+  .hero p{color:rgba(255,255,255,.7);font-size:1.1rem;max-width:500px;margin-bottom:42px}
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+  .hero-stats{display:flex;gap:48px;margin-top:64px;padding-top:32px;border-top:1px solid var(--line-light)}
+  .hero-stats strong{font-family:var(--serif);font-size:2.4rem;font-weight:500;display:block;line-height:1}
+  .hero-stats span{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+
+  /* Window with animated blind */
+  .window{position:relative;aspect-ratio:4/5;max-width:470px;margin-left:auto;width:100%}
+  .window-frame{position:absolute;inset:0;border:14px solid #2f2f2f;background:linear-gradient(180deg,#f7d9a6 0%,#f1b98a 35%,#c98a6b 60%,#6b6b78 100%);box-shadow:0 50px 100px -30px rgba(0,0,0,.7),inset 0 0 0 1px rgba(255,255,255,.06);overflow:hidden}
+  .window-frame::before{content:"";position:absolute;width:42%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#fff6dc 0%,#ffe0a3 40%,rgba(255,224,163,0) 70%);left:50%;top:38%;transform:translate(-50%,-50%)}
+  .window-frame::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(180deg,#3d4552,#262a31)}
+  .mullion-v,.mullion-h{position:absolute;background:#2f2f2f;z-index:2}
+  .mullion-v{width:10px;top:0;bottom:0;left:50%;transform:translateX(-50%)}
+  .mullion-h{height:10px;left:0;right:0;top:50%}
+  .blind{position:absolute;left:0;right:0;top:0;height:62%;z-index:3;background:repeating-linear-gradient(180deg,#ece6da 0 3px,#e2dbcc 3px 4px);box-shadow:0 10px 30px rgba(0,0,0,.25);animation:roll 9s var(--ease) infinite alternate}
+  .blind::after{content:"";position:absolute;left:-2px;right:-2px;bottom:-8px;height:10px;background:linear-gradient(180deg,#8a8378,#5c564d);border-radius:2px}
+  .headrail{position:absolute;left:-18px;right:-18px;top:-22px;height:22px;background:linear-gradient(180deg,#3a3a3a,#1c1c1c);z-index:4;border-radius:2px}
+  .chain{position:absolute;right:22px;top:0;height:78%;width:2px;background:repeating-linear-gradient(180deg,#bbb 0 3px,transparent 3px 6px);z-index:4}
+  @keyframes roll{0%{height:88%}45%{height:88%}100%{height:22%}}
+  .badge{position:absolute;left:-38px;bottom:52px;z-index:5;background:var(--lime);color:var(--ink);padding:22px 26px;box-shadow:0 30px 60px -20px rgba(0,0,0,.5)}
+  .badge b{font-family:var(--serif);font-size:2rem;font-weight:600;display:block;line-height:1}
+  .badge span{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
+  .scroll-cue{position:absolute;left:50%;bottom:30px;transform:translateX(-50%);font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.45);display:flex;flex-direction:column;align-items:center;gap:10px}
+  .scroll-cue i{width:1px;height:44px;background:linear-gradient(var(--lime),transparent);animation:cue 2s ease-in-out infinite}
+  @keyframes cue{0%,100%{transform:scaleY(.4);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
+
+  /* Marquee */
+  .marquee{background:var(--lime);color:var(--ink);overflow:hidden;padding:20px 0;border-bottom:1px solid rgba(0,0,0,.08)}
+  .marquee-track{display:flex;gap:56px;white-space:nowrap;width:max-content;animation:marq 38s linear infinite}
+  .marquee span{font-family:var(--serif);font-size:1.5rem;font-style:italic;display:inline-flex;align-items:center;gap:56px}
+  .marquee span::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--red)}
+  @keyframes marq{to{transform:translateX(-50%)}}
+
+  section{padding:130px 0}
+
+  /* About */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
+  .about-visual{position:relative;aspect-ratio:1/1.05}
+  .about-visual .panel{position:absolute;inset:0 18% 12% 0;background:var(--charcoal);overflow:hidden}
+  .about-visual .panel::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,#2b2b2b 0 38px,#232323 38px 40px,#303030 40px 78px,#232323 78px 80px)}
+  .about-visual .panel::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,226,170,.28),transparent 55%)}
+  .about-visual .card{position:absolute;right:0;bottom:0;width:58%;background:#fff;padding:38px 34px;box-shadow:0 40px 80px -30px rgba(0,0,0,.25);border-top:4px solid var(--red)}
+  .about-visual .card h3{font-size:1.9rem;margin-bottom:10px}
+  .about-visual .card p{font-size:.92rem;color:var(--muted)}
+  .about-visual .tag{position:absolute;top:34px;left:34px;color:#fff;font-family:var(--serif);font-size:1.25rem;font-style:italic;z-index:2;max-width:200px;line-height:1.3}
+  .pillars{display:grid;grid-template-columns:1fr 1fr;gap:34px 40px;margin-top:46px}
+  .pillar{padding-top:22px;border-top:1px solid var(--line)}
+  .pillar .num{font-family:var(--serif);color:var(--red);font-size:1.05rem;font-style:italic}
+  .pillar h4{font-size:1.02rem;font-weight:700;margin:6px 0 6px}
+  .pillar p{font-size:.92rem;color:var(--muted)}
+
+  /* Collection */
+  .collection{background:var(--sand)}
+  .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:64px;flex-wrap:wrap}
+  .sec-head .lead{margin-bottom:6px}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .product{background:var(--ivory);position:relative;overflow:hidden;transition:transform .6s var(--ease),box-shadow .6s var(--ease);display:flex;flex-direction:column}
+  .product:hover{transform:translateY(-8px);box-shadow:0 40px 70px -35px rgba(0,0,0,.35)}
+  .product.wide{grid-column:span 2}
+  .swatch{height:250px;position:relative;overflow:hidden;background:linear-gradient(180deg,#f3d7a9,#d9a37f 60%,#7f7f8c)}
+  .swatch .fx{position:absolute;inset:0;transition:transform .9s var(--ease)}
+  .product:hover .swatch .fx{transform:scale(1.04)}
+  .fx.sunscreen{background:linear-gradient(180deg,rgba(60,60,60,.55),rgba(60,60,60,.45)),repeating-linear-gradient(90deg,rgba(255,255,255,.08) 0 1px,transparent 1px 3px),repeating-linear-gradient(0deg,rgba(255,255,255,.08) 0 1px,transparent 1px 3px);bottom:22%}
+  .fx.blockout{background:linear-gradient(180deg,#2a2a2a,#1a1a1a);bottom:8%}
+  .fx.blockout::after,.fx.sunscreen::after,.fx.thermal::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:8px;background:#111}
+  .fx.vertical{background:repeating-linear-gradient(90deg,#f1ece2 0 26px,#d8d1c3 26px 28px,#e7e1d5 28px 30px)}
+  .fx.wooden{background:repeating-linear-gradient(180deg,#8b5a36 0 16px,#6e4426 16px 18px,#a06a42 18px 19px,rgba(0,0,0,0) 19px 24px)}
+  .fx.venetian{background:repeating-linear-gradient(180deg,#d4d6d9 0 9px,#a9adb2 9px 10px,rgba(0,0,0,0) 10px 15px)}
+  .fx.thermal{background:linear-gradient(180deg,#e9e3d8,#d8d0c1);bottom:30%;box-shadow:inset 0 -12px 18px rgba(0,0,0,.08)}
+  .fx.curtains{background:linear-gradient(90deg,transparent 30%,transparent 70%),repeating-linear-gradient(90deg,#9c1730 0 14px,#c22340 14px 26px,#86122a 26px 34px);-webkit-mask:linear-gradient(90deg,#000 0 30%,transparent 30% 70%,#000 70%);mask:linear-gradient(90deg,#000 0 30%,transparent 30% 70%,#000 70%)}
+  .rail{position:absolute;left:0;right:0;top:0;height:10px;background:#1b1b1b;z-index:2}
+  .product-body{padding:28px 28px 32px;flex:1;display:flex;flex-direction:column}
+  .product-body .idx{font-size:.7rem;letter-spacing:.24em;color:var(--muted);text-transform:uppercase;font-weight:600}
+  .product-body h3{font-size:1.75rem;margin:8px 0 10px}
+  .product-body p{font-size:.92rem;color:var(--muted);flex:1}
+  .product-body .more{margin-top:20px;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);display:inline-flex;gap:10px;align-items:center}
+  .product-body .more::after{content:"→";transition:transform .4s var(--ease)}
+  .product:hover .more::after{transform:translateX(5px)}
+
+  /* Process */
+  .process{background:var(--charcoal);color:#fff;position:relative;overflow:hidden}
+  .process::before{content:"";position:absolute;right:-200px;top:-200px;width:600px;height:600px;border-radius:50%;border:1px solid rgba(164,197,32,.15)}
+  .process h2 em{color:var(--lime)}
+  .process .lead{color:rgba(255,255,255,.6)}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);margin-top:70px;border-top:1px solid var(--line-light)}
+  .step{padding:44px 32px 10px 0;position:relative}
+  .step + .step{padding-left:32px;border-left:1px solid var(--line-light)}
+  .step .n{font-family:var(--serif);font-size:4rem;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.35);font-weight:500}
+  .step:hover .n{-webkit-text-stroke-color:var(--lime);color:var(--lime);transition:all .5s var(--ease)}
+  .step h4{font-size:1.1rem;margin:22px 0 10px;font-weight:600}
+  .step p{color:rgba(255,255,255,.6);font-size:.93rem}
+
+  /* Promise band */
+  .promise{padding:0;background:var(--ivory)}
+  .promise-inner{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
+  .promise-item{padding:56px 40px;display:flex;gap:22px;align-items:flex-start}
+  .promise-item + .promise-item{border-left:1px solid var(--line)}
+  .promise-item svg{flex:none;width:40px;height:40px;stroke:var(--red);fill:none;stroke-width:1.4}
+  .promise-item h4{font-family:var(--serif);font-size:1.5rem;font-weight:500;line-height:1.15}
+  .promise-item p{font-size:.9rem;color:var(--muted);margin-top:6px}
+
+  /* Quote */
+  .quote-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:start}
+  .contact-list{list-style:none;margin-top:40px}
+  .contact-list li{display:flex;gap:20px;padding:22px 0;border-top:1px solid var(--line)}
+  .contact-list li:last-child{border-bottom:1px solid var(--line)}
+  .contact-list .ic{width:46px;height:46px;flex:none;border:1px solid var(--line);display:grid;place-items:center;border-radius:50%}
+  .contact-list .ic svg{width:18px;height:18px;stroke:var(--red);fill:none;stroke-width:1.6}
+  .contact-list small{display:block;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .contact-list a,.contact-list address{font-style:normal;font-size:1.08rem;font-weight:600}
+  .contact-list a:hover{color:var(--red)}
+  .director{margin-top:34px;display:flex;align-items:center;gap:18px}
+  .director .av{width:58px;height:58px;border-radius:50%;background:var(--ink);color:var(--lime);display:grid;place-items:center;font-family:var(--serif);font-size:1.4rem;font-style:italic}
+  .director b{display:block;font-size:1rem}
+  .director span{font-size:.85rem;color:var(--muted)}
+
+  form.quote{background:#fff;padding:54px 50px;box-shadow:0 50px 100px -50px rgba(0,0,0,.3);position:relative}
+  form.quote::before{content:"";position:absolute;left:0;top:0;height:4px;width:100%;background:linear-gradient(90deg,var(--red) 0 60%,var(--ink) 60% 80%,var(--lime) 80%)}
+  form.quote h3{font-size:2.2rem;margin-bottom:6px}
+  form.quote > p{color:var(--muted);font-size:.93rem;margin-bottom:34px}
+  .fields{display:grid;grid-template-columns:1fr 1fr;gap:26px 24px}
+  .field{display:flex;flex-direction:column;gap:8px}
+  .field.full{grid-column:1/-1}
+  .field label{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+  .field input,.field select,.field textarea{font:inherit;font-size:1rem;border:0;border-bottom:1px solid var(--line);background:transparent;padding:10px 0;color:var(--ink);outline:none;transition:border-color .3s;border-radius:0;-webkit-appearance:none;appearance:none}
+  .field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23D61F3C' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 4px center;cursor:pointer}
+  .field textarea{resize:vertical;min-height:90px}
+  .field input:focus,.field select:focus,.field textarea:focus{border-bottom-color:var(--red)}
+  form.quote .btn{margin-top:36px;width:100%;justify-content:center}
+  .form-note{font-size:.78rem;color:var(--muted);text-align:center;margin-top:14px}
+
+  /* Map */
+  .map{height:420px;filter:grayscale(1) contrast(1.05);border:0;width:100%;display:block}
+
+  /* Footer */
+  footer{background:var(--ink);color:#fff}
+  .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:50px;padding:90px 0 70px}
+  .foot-top p{color:rgba(255,255,255,.55);font-size:.92rem;margin-top:22px;max-width:300px}
+  .foot-top h5{font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:var(--lime);margin-bottom:22px;font-weight:700}
+  .foot-top ul{list-style:none;display:grid;gap:12px}
+  .foot-top li a,.foot-top li{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .3s}
+  .foot-top li a:hover{color:#fff}
+  .foot-band{background:var(--red);padding:20px 0;font-size:.84rem}
+  .foot-band .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+  /* Floating call */
+  .float-call{position:fixed;right:22px;bottom:22px;z-index:40;width:58px;height:58px;border-radius:50%;background:var(--red);display:grid;place-items:center;box-shadow:0 14px 30px -8px rgba(214,31,60,.6);transition:transform .4s var(--ease)}
+  .float-call:hover{transform:scale(1.08)}
+  .float-call svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:1.8}
+
+  /* Reveal */
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+  /* Responsive */
+  @media (max-width:1080px){
+    .grid{grid-template-columns:repeat(2,1fr)}
+    .steps{grid-template-columns:1fr 1fr}
+    .step:nth-child(3){padding-left:0;border-left:0}
+    .foot-top{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:920px){
+    .nav ul,.nav .btn{display:none}
+    .menu-btn{display:block}
+    .menu-open .nav ul{display:flex;position:fixed;inset:0;background:var(--charcoal);flex-direction:column;justify-content:center;align-items:center;gap:30px;z-index:-1}
+    .menu-open .nav ul a{color:#fff;font-size:1rem}
+    .menu-open .logo .k{color:#fff}
+    .menu-open header{color:#fff;backdrop-filter:none;-webkit-backdrop-filter:none;background:transparent;box-shadow:none}
+    .menu-open .logo small{color:rgba(255,255,255,.6)}
+    .hero-grid,.about-grid,.quote-grid{grid-template-columns:1fr;gap:60px}
+    .window{margin:0 auto;max-width:380px}
+    .badge{left:-10px}
+    .promise-inner{grid-template-columns:1fr}
+    .promise-item + .promise-item{border-left:0;border-top:1px solid var(--line)}
+    section{padding:96px 0}
+  }
+  @media (max-width:600px){
+    .wrap{padding:0 16px}
+    .grid{grid-template-columns:1fr}
+    .product.wide{grid-column:auto}
+    .steps{grid-template-columns:1fr}
+    .step,.step + .step{padding:34px 0 10px;border-left:0}
+    .step + .step{border-top:1px solid var(--line-light)}
+    .pillars,.fields{grid-template-columns:1fr}
+    .hero-stats{gap:26px}
+    .hero-stats strong{font-size:1.9rem}
+    form.quote{padding:40px 22px}
+    .foot-top{grid-template-columns:1fr}
+    .about-visual .card{width:78%;padding:28px 24px}
+    .promise-item{padding:40px 0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header id="top">
+  <div class="wrap nav">
+    <a href="#home" class="logo" aria-label="Blinds To Go home">
+      <span class="word"><span class="r">b</span><span class="k">linds</span><span class="g">to</span><span class="k">g</span><span class="r">o</span></span>
+      <small>Factory direct · Made to measure</small>
+    </a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#collection">Collection</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-red">Free Quote</a>
+    <button class="menu-btn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero on-dark" id="home">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow lime reveal">Auckland · New Zealand</span>
+      <h1 class="reveal d1">Light, shaped<br>to <em>your</em> home.</h1>
+      <p class="reveal d2">Bespoke blinds and curtains, crafted factory direct and made precisely to measure for every window. Refined design, honest pricing, expert installation.</p>
+      <div class="hero-ctas reveal d3">
+        <a href="#contact" class="btn btn-red">Book Free Measure
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#collection" class="btn btn-ghost">Explore Collection</a>
+      </div>
+      <div class="hero-stats reveal d3">
+        <div><strong>100%</strong><span>Made to measure</span></div>
+        <div><strong>Free</strong><span>Measure &amp; quote</span></div>
+        <div><strong>Direct</strong><span>From our factory</span></div>
+      </div>
+    </div>
+    <div class="reveal d2">
+      <div class="window" aria-hidden="true">
+        <div class="headrail"></div>
+        <div class="window-frame">
+          <div class="mullion-v"></div><div class="mullion-h"></div>
+          <div class="blind"></div>
+          <div class="chain"></div>
+        </div>
+        <div class="badge"><b>Free</b><span>In-home consultation</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue">Scroll<i></i></div>
+</section>
+
+<!-- Marquee -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Sunscreen Roller Blinds</span><span>Blockout Roller Blinds</span><span>Vertical Blinds</span><span>Wooden &amp; Aluminium</span><span>Venetian Blinds</span><span>Thermal Blockout</span><span>Curtains</span>
+    <span>Sunscreen Roller Blinds</span><span>Blockout Roller Blinds</span><span>Vertical Blinds</span><span>Wooden &amp; Aluminium</span><span>Venetian Blinds</span><span>Thermal Blockout</span><span>Curtains</span>
+  </div>
+</div>
+
+<!-- About -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-visual reveal">
+      <div class="panel"><div class="tag">"Every window deserves a perfect fit."</div></div>
+      <div class="card">
+        <h3>Factory direct.</h3>
+        <p>No showroom markups or middlemen. Your blinds are made by us and fitted by us, so you get premium quality at a fair price.</p>
+      </div>
+    </div>
+    <div>
+      <span class="eyebrow reveal">About Blinds To Go</span>
+      <h2 class="reveal d1">Crafted with care,<br><em>measured</em> to perfection.</h2>
+      <p class="lead reveal d2">Based in Papatoetoe, Auckland, Blinds To Go designs, manufactures and installs window furnishings for homes and businesses across the region. Each piece is cut to the millimetre and finished to last.</p>
+      <div class="pillars">
+        <div class="pillar reveal d1"><span class="num">i.</span><h4>Made to Measure</h4><p>Every blind is built to your exact window dimensions, never off the shelf.</p></div>
+        <div class="pillar reveal d2"><span class="num">ii.</span><h4>Factory Direct Pricing</h4><p>We cut out the middleman and pass the savings straight to you.</p></div>
+        <div class="pillar reveal d1"><span class="num">iii.</span><h4>Free Measure &amp; Quote</h4><p>We come to you, measure precisely and give you a clear, no-obligation quote.</p></div>
+        <div class="pillar reveal d2"><span class="num">iv.</span><h4>Local &amp; Personal</h4><p>An Auckland family business that looks after you from first visit to final fit.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Collection -->
+<section class="collection" id="collection">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow reveal">The Collection</span>
+        <h2 class="reveal d1">Window furnishings,<br><em>beautifully</em> considered.</h2>
+      </div>
+      <p class="lead reveal d2">From soft light filtering to complete darkness, choose the finish, fabric and function that suit each room.</p>
+    </div>
+
+    <div class="grid">
+      <article class="product wide reveal">
+        <div class="swatch"><div class="fx sunscreen"></div><div class="rail"></div></div>
+        <div class="product-body"><span class="idx">01 · Roller</span><h3>Sunscreen Roller Blinds</h3><p>Reduce glare and heat while keeping your view. A clean, contemporary look for living areas and offices.</p><a href="#contact" class="more">Enquire</a></div>
+      </article>
+      <article class="product reveal d1">
+        <div class="swatch"><div class="fx blockout"></div><div class="rail"></div></div>
+        <div class="product-body"><span class="idx">02 · Roller</span><h3>Blockout Roller Blinds</h3><p>Total privacy and deep, restful darkness for bedrooms and media rooms.</p><a href="#contact" class="more">Enquire</a></div>
+      </article>
+      <article class="product reveal d2">
+        <div class="swatch"><div class="fx thermal"></div><div class="rail"></div></div>
+        <div class="product-body"><span class="idx">03 · Roller</span><h3>Thermal Blockout</h3><p>Insulating fabrics that keep warmth in through winter and heat out in summer.</p><a href="#contact" class="more">Enquire</a></div>
+      </article>
+      <article class="product reveal">
+        <div class="swatch"><div class="fx vertical"></div><div class="rail"></div></div>
+        <div class="product-body"><span class="idx">04 · Vertical</span><h3>Vertical Blinds</h3><p>Ideal for wide windows and sliding doors, with easy, precise light control.</p><a href="#contact" class="more">Enquire</a></div>
+      </article>
+      <article class="product reveal d1">
+        <div class="swatch"><div class="fx wooden"></div><div class="rail"></div></div>
+        <div class="product-body"><span class="idx">05 · Timber</span><h3>Wooden Blinds</h3><p>Natural warmth and timeless texture that elevates any interior.</p><a href="#contact" class="more">Enquire</a></div>
+      </article>
+      <article class="product reveal d2">
+        <div class="swatch"><div class="fx venetian"></div><div class="rail"></div></div>
+        <div class="product-body"><span class="idx">06 · Aluminium</span><h3>Venetian Blinds</h3><p>Sleek aluminium slats, durable and moisture resistant for kitchens and bathrooms.</p><a href="#contact" class="more">Enquire</a></div>
+      </article>
+      <article class="product reveal d3">
+        <div class="swatch"><div class="fx curtains"></div><div class="rail"></div></div>
+        <div class="product-body"><span class="idx">07 · Drapery</span><h3>Curtains</h3><p>Soft, flowing fabrics tailored to frame your windows with elegance.</p><a href="#contact" class="more">Enquire</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="process on-dark" id="process">
+  <div class="wrap">
+    <span class="eyebrow lime reveal">How it works</span>
+    <h2 class="reveal d1">From first visit<br>to <em>final</em> fit.</h2>
+    <p class="lead reveal d2">A simple, personal process designed around you and your home.</p>
+    <div class="steps">
+      <div class="step reveal"><div class="n">01</div><h4>Get in touch</h4><p>Call, email or send the form below to book a convenient time.</p></div>
+      <div class="step reveal d1"><div class="n">02</div><h4>Free measure &amp; quote</h4><p>We visit, measure every window precisely and help you choose fabrics and styles.</p></div>
+      <div class="step reveal d2"><div class="n">03</div><h4>Made in our factory</h4><p>Your blinds are crafted to measure, with careful quality checks.</p></div>
+      <div class="step reveal d3"><div class="n">04</div><h4>Expert installation</h4><p>We fit everything neatly and make sure it all works perfectly.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Promise -->
+<section class="promise">
+  <div class="wrap promise-inner">
+    <div class="promise-item reveal">
+      <svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
+      <div><h4>Factory direct</h4><p>Premium quality without retail markups.</p></div>
+    </div>
+    <div class="promise-item reveal d1">
+      <svg viewBox="0 0 24 24"><path d="M3 7h18v10H3zM7 7v3M11 7v4M15 7v3M19 7v4"/></svg>
+      <div><h4>Made to measure</h4><p>Precision cut to fit each and every window.</p></div>
+    </div>
+    <div class="promise-item reveal d2">
+      <svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 10-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+      <div><h4>Proudly Auckland</h4><p>Local service you can count on.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Quote / Contact -->
+<section id="contact">
+  <div class="wrap quote-grid">
+    <div>
+      <span class="eyebrow reveal">Free measure &amp; quote</span>
+      <h2 class="reveal d1">Let's dress<br>your <em>windows</em>.</h2>
+      <p class="lead reveal d2">Tell us a little about your project and we'll arrange a free, no-obligation visit at a time that suits you.</p>
+      <ul class="contact-list reveal d2">
+        <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8 9.8a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z"/></svg></span><div><small>Call</small><a href="tel:+64211198238">+64 21 1198 238</a></div></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></span><div><small>Email</small><a href="mailto:sales@blindstogo.co.nz">sales@blindstogo.co.nz</a></div></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 10-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><small>Visit</small><address>10 Grayson Avenue, Papatoetoe,<br>Auckland, New Zealand</address></div></li>
+      </ul>
+      <div class="director reveal d3">
+        <div class="av">AS</div>
+        <div><b>Ajay Singh (Jelly)</b><span>Director</span></div>
+      </div>
+    </div>
+
+    <form class="quote reveal d1" id="quoteForm" novalidate>
+      <h3>Request a free quote</h3>
+      <p>We usually respond within one business day.</p>
+      <div class="fields">
+        <div class="field"><label for="name">Full name</label><input id="name" name="name" required autocomplete="name"></div>
+        <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" required autocomplete="tel"></div>
+        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email"></div>
+        <div class="field"><label for="suburb">Suburb</label><input id="suburb" name="suburb" autocomplete="address-level2"></div>
+        <div class="field full"><label for="product">Interested in</label>
+          <select id="product" name="product">
+            <option>Sunscreen Roller Blinds</option>
+            <option>Blockout Roller Blinds</option>
+            <option>Thermal Blockout Roller Blinds</option>
+            <option>Vertical Blinds</option>
+            <option>Wooden Blinds</option>
+            <option>Aluminium Venetian Blinds</option>
+            <option>Curtains</option>
+            <option>Not sure yet, need advice</option>
+          </select>
+        </div>
+        <div class="field full"><label for="msg">Tell us about your windows</label><textarea id="msg" name="msg" placeholder="Number of windows, rooms, preferred times…"></textarea></div>
+      </div>
+      <button type="submit" class="btn btn-dark">Send Request
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+      <p class="form-note" id="formNote">This opens your email app with your details ready to send.</p>
+    </form>
+  </div>
+</section>
+
+<iframe class="map" title="Blinds To Go location" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+  src="https://maps.google.com/maps?q=10%20Grayson%20Avenue%2C%20Papatoetoe%2C%20Auckland%2C%20New%20Zealand&z=15&output=embed"></iframe>
+
+<!-- Footer -->
+<footer class="on-dark">
+  <div class="wrap foot-top">
+    <div>
+      <a href="#home" class="logo">
+        <span class="word"><span class="r">b</span><span class="k">linds</span><span class="g">to</span><span class="k">g</span><span class="r">o</span></span>
+        <small>Factory direct · Made to measure</small>
+      </a>
+      <p>Bespoke blinds and curtains for Auckland homes and businesses, made in our factory and fitted by our team.</p>
+    </div>
+    <div>
+      <h5>Blinds</h5>
+      <ul><li><a href="#collection">Sunscreen Roller</a></li><li><a href="#collection">Blockout Roller</a></li><li><a href="#collection">Thermal Blockout</a></li><li><a href="#collection">Vertical</a></li></ul>
+    </div>
+    <div>
+      <h5>More</h5>
+      <ul><li><a href="#collection">Wooden Blinds</a></li><li><a href="#collection">Venetian Blinds</a></li><li><a href="#collection">Curtains</a></li><li><a href="#contact">Free Quote</a></li></ul>
+    </div>
+    <div>
+      <h5>Contact</h5>
+      <ul><li><a href="tel:+64211198238">+64 21 1198 238</a></li><li><a href="mailto:sales@blindstogo.co.nz">sales@blindstogo.co.nz</a></li><li>www.blindstogo.co.nz</li></ul>
+    </div>
+  </div>
+  <div class="foot-band">
+    <div class="wrap"><span>10 Grayson Avenue, Papatoetoe, Auckland, New Zealand</span><span>© <span id="yr"></span> Blinds To Go. All rights reserved.</span></div>
+  </div>
+</footer>
+
+<a href="tel:+64211198238" class="float-call" aria-label="Call Blinds To Go">
+  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8 9.8a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z"/></svg>
+</a>
+
+<script>
+  // Header style on scroll
+  const header = document.getElementById('top');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile menu
+  document.querySelector('.menu-btn').addEventListener('click', () => document.body.classList.toggle('menu-open'));
+  document.querySelectorAll('.nav ul a').forEach(a => a.addEventListener('click', () => document.body.classList.remove('menu-open')));
+
+  // Reveal on scroll
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.14 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Quote form -> email
+  document.getElementById('quoteForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const f = e.target, note = document.getElementById('formNote');
+    if (!f.name.value.trim() || !f.phone.value.trim()) {
+      note.textContent = 'Please add your name and phone number.';
+      note.style.color = 'var(--red)';
+      return;
+    }
+    const body = `Name: ${f.name.value}\nPhone: ${f.phone.value}\nEmail: ${f.email.value}\nSuburb: ${f.suburb.value}\nInterested in: ${f.product.value}\n\n${f.msg.value}`;
+    window.location.href = `mailto:sales@blindstogo.co.nz?subject=${encodeURIComponent('Free Measure & Quote Request')}&body=${encodeURIComponent(body)}`;
+    note.textContent = 'Thank you! Your email app should now open.';
+    note.style.color = 'var(--muted)';
+  });
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
