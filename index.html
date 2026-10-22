@@ -142,21 +142,14 @@
   .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:64px;flex-wrap:wrap}
   .sec-head .lead{margin-bottom:6px}
   .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-  .product{background:var(--ivory);position:relative;overflow:hidden;transition:transform .6s var(--ease),box-shadow .6s var(--ease);display:flex;flex-direction:column}
+  .product{background:var(--ivory);position:relative;overflow:hidden;transition:transform .6s var(--ease),box-shadow .6s var(--ease);display:flex;flex-direction:column;cursor:pointer}
   .product:hover{transform:translateY(-8px);box-shadow:0 40px 70px -35px rgba(0,0,0,.35)}
+  .product:focus-visible{outline:2px solid var(--red);outline-offset:4px}
   .product.wide{grid-column:span 2}
-  .swatch{height:250px;position:relative;overflow:hidden;background:linear-gradient(180deg,#f3d7a9,#d9a37f 60%,#7f7f8c)}
-  .swatch .fx{position:absolute;inset:0;transition:transform .9s var(--ease)}
-  .product:hover .swatch .fx{transform:scale(1.04)}
-  .fx.sunscreen{background:linear-gradient(180deg,rgba(60,60,60,.55),rgba(60,60,60,.45)),repeating-linear-gradient(90deg,rgba(255,255,255,.08) 0 1px,transparent 1px 3px),repeating-linear-gradient(0deg,rgba(255,255,255,.08) 0 1px,transparent 1px 3px);bottom:22%}
-  .fx.blockout{background:linear-gradient(180deg,#2a2a2a,#1a1a1a);bottom:8%}
-  .fx.blockout::after,.fx.sunscreen::after,.fx.thermal::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:8px;background:#111}
-  .fx.vertical{background:repeating-linear-gradient(90deg,#f1ece2 0 26px,#d8d1c3 26px 28px,#e7e1d5 28px 30px)}
-  .fx.wooden{background:repeating-linear-gradient(180deg,#8b5a36 0 16px,#6e4426 16px 18px,#a06a42 18px 19px,rgba(0,0,0,0) 19px 24px)}
-  .fx.venetian{background:repeating-linear-gradient(180deg,#d4d6d9 0 9px,#a9adb2 9px 10px,rgba(0,0,0,0) 10px 15px)}
-  .fx.thermal{background:linear-gradient(180deg,#e9e3d8,#d8d0c1);bottom:30%;box-shadow:inset 0 -12px 18px rgba(0,0,0,.08)}
-  .fx.curtains{background:linear-gradient(90deg,transparent 30%,transparent 70%),repeating-linear-gradient(90deg,#9c1730 0 14px,#c22340 14px 26px,#86122a 26px 34px);-webkit-mask:linear-gradient(90deg,#000 0 30%,transparent 30% 70%,#000 70%);mask:linear-gradient(90deg,#000 0 30%,transparent 30% 70%,#000 70%)}
-  .rail{position:absolute;left:0;right:0;top:0;height:10px;background:#1b1b1b;z-index:2}
+  .swatch{height:280px;position:relative;overflow:hidden;background:var(--sand)}
+  .swatch img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s var(--ease)}
+  .product:hover .swatch img{transform:scale(1.05)}
+  .swatch .count{position:absolute;left:16px;bottom:16px;background:rgba(18,18,18,.72);color:#fff;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;padding:8px 12px;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
   .product-body{padding:28px 28px 32px;flex:1;display:flex;flex-direction:column}
   .product-body .idx{font-size:.7rem;letter-spacing:.24em;color:var(--muted);text-transform:uppercase;font-weight:600}
   .product-body h3{font-size:1.75rem;margin:8px 0 10px}
@@ -164,6 +157,34 @@
   .product-body .more{margin-top:20px;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);display:inline-flex;gap:10px;align-items:center}
   .product-body .more::after{content:"→";transition:transform .4s var(--ease)}
   .product:hover .more::after{transform:translateX(5px)}
+
+  /* Gallery lightbox */
+  .lightbox{position:fixed;inset:0;z-index:200;background:rgba(12,12,12,.86);display:flex;align-items:center;justify-content:center;padding:28px;opacity:0;transition:opacity .4s var(--ease);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+  .lightbox[hidden]{display:none}
+  .lightbox.open{opacity:1}
+  .lb-panel{background:var(--ivory);width:min(1040px,100%);max-height:calc(100vh - 56px);overflow:auto;display:flex;flex-direction:column;border-top:4px solid var(--red);transform:translateY(24px);transition:transform .5s var(--ease)}
+  .lightbox.open .lb-panel{transform:none}
+  .lb-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;padding:24px 28px 18px}
+  .lb-idx{font-size:.7rem;letter-spacing:.24em;color:var(--muted);text-transform:uppercase;font-weight:600}
+  .lb-head h3{font-size:2rem;margin-top:4px}
+  .lb-close{background:none;border:1px solid var(--line);width:44px;height:44px;border-radius:50%;font-size:1.6rem;line-height:1;cursor:pointer;color:var(--ink);flex:none;transition:all .3s var(--ease)}
+  .lb-close:hover{background:var(--red);border-color:var(--red);color:#fff}
+  .lb-stage{position:relative;background:#1a1a1a;height:min(60vh,560px);display:flex;align-items:center;justify-content:center}
+  .lb-stage img{max-width:100%;max-height:100%;object-fit:contain;display:block;transition:opacity .3s var(--ease)}
+  .lb-stage img.fade{opacity:0}
+  .lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;border:0;background:rgba(255,255,255,.9);color:var(--ink);font-size:2rem;line-height:1;cursor:pointer;display:grid;place-items:center;transition:all .3s var(--ease)}
+  .lb-nav:hover{background:var(--red);color:#fff}
+  .lb-nav.prev{left:18px}
+  .lb-nav.next{right:18px}
+  .lb-counter{position:absolute;right:18px;bottom:16px;color:#fff;font-size:.72rem;letter-spacing:.2em;font-weight:600;background:rgba(0,0,0,.5);padding:6px 10px}
+  .lb-thumbs{display:flex;gap:10px;padding:16px 28px;overflow-x:auto}
+  .lb-thumbs button{flex:none;width:84px;height:84px;padding:0;border:2px solid transparent;background:none;cursor:pointer;opacity:.55;transition:all .3s var(--ease)}
+  .lb-thumbs button:hover{opacity:.85}
+  .lb-thumbs button.active{border-color:var(--red);opacity:1}
+  .lb-thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+  .lb-foot{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:4px 28px 28px;flex-wrap:wrap}
+  .lb-foot p{color:var(--muted);font-size:.95rem;max-width:560px;flex:1 1 280px}
+  body.lb-lock{overflow:hidden}
 
   /* Process */
   .process{background:var(--charcoal);color:#fff;position:relative;overflow:hidden}
@@ -277,6 +298,18 @@
     .foot-top{grid-template-columns:1fr}
     .about-visual .card{width:78%;padding:28px 24px}
     .promise-item{padding:40px 0}
+    .lightbox{padding:0}
+    .lb-panel{max-height:100vh;height:100%}
+    .lb-head{padding:18px 16px 14px}
+    .lb-head h3{font-size:1.5rem}
+    .lb-stage{height:auto;flex:1;min-height:300px}
+    .lb-nav{width:40px;height:40px;font-size:1.6rem}
+    .lb-nav.prev{left:10px}
+    .lb-nav.next{right:10px}
+    .lb-thumbs{padding:12px 16px}
+    .lb-thumbs button{width:64px;height:64px}
+    .lb-foot{padding:4px 16px 20px}
+    .lb-cta{width:100%;justify-content:center}
   }
   @media (prefers-reduced-motion:reduce){
     *,*::before,*::after{animation:none!important;transition:none!important}
@@ -382,34 +415,48 @@
     </div>
 
     <div class="grid">
-      <article class="product wide reveal">
-        <div class="swatch"><div class="fx sunscreen"></div><div class="rail"></div></div>
-        <div class="product-body"><span class="idx">01 · Roller</span><h3>Sunscreen Roller Blinds</h3><p>Reduce glare and heat while keeping your view. A clean, contemporary look for living areas and offices.</p><a href="#contact" class="more">Enquire</a></div>
+      <article class="product wide reveal" data-gallery="sunscreen" tabindex="0" role="button" aria-label="View Sunscreen Roller Blinds gallery">
+        <div class="swatch"><img src="images/collection/sunscreen-1.jpg" alt="Sunscreen roller blind in a bedroom" loading="lazy"><span class="count">6 photos</span></div>
+        <div class="product-body"><span class="idx">01 · Roller</span><h3>Sunscreen Roller Blinds</h3><p>Reduce glare and heat while keeping your view. A clean, contemporary look for living areas and offices.</p><span class="more">View Gallery</span></div>
       </article>
-      <article class="product reveal d1">
-        <div class="swatch"><div class="fx blockout"></div><div class="rail"></div></div>
-        <div class="product-body"><span class="idx">02 · Roller</span><h3>Blockout Roller Blinds</h3><p>Total privacy and deep, restful darkness for bedrooms and media rooms.</p><a href="#contact" class="more">Enquire</a></div>
+      <article class="product reveal d1" data-gallery="blockout" tabindex="0" role="button" aria-label="View Blockout Roller Blinds gallery">
+        <div class="swatch"><img src="images/collection/blockout-2.jpg" alt="Grey blockout roller blind" loading="lazy"><span class="count">6 photos</span></div>
+        <div class="product-body"><span class="idx">02 · Roller</span><h3>Blockout Roller Blinds</h3><p>Total privacy and deep, restful darkness for bedrooms and media rooms.</p><span class="more">View Gallery</span></div>
       </article>
-      <article class="product reveal d2">
-        <div class="swatch"><div class="fx thermal"></div><div class="rail"></div></div>
-        <div class="product-body"><span class="idx">03 · Roller</span><h3>Thermal Blockout</h3><p>Insulating fabrics that keep warmth in through winter and heat out in summer.</p><a href="#contact" class="more">Enquire</a></div>
+      <article class="product reveal d2" data-gallery="thermal" tabindex="0" role="button" aria-label="View Thermal Blockout gallery">
+        <div class="swatch"><img src="images/collection/thermal-4.jpg" alt="Beige thermal blockout roller blind" loading="lazy"><span class="count">5 photos</span></div>
+        <div class="product-body"><span class="idx">03 · Roller</span><h3>Thermal Blockout</h3><p>Insulating fabrics that keep warmth in through winter and heat out in summer.</p><span class="more">View Gallery</span></div>
       </article>
-      <article class="product reveal">
-        <div class="swatch"><div class="fx vertical"></div><div class="rail"></div></div>
-        <div class="product-body"><span class="idx">04 · Vertical</span><h3>Vertical Blinds</h3><p>Ideal for wide windows and sliding doors, with easy, precise light control.</p><a href="#contact" class="more">Enquire</a></div>
+      <article class="product reveal" data-gallery="vertical" tabindex="0" role="button" aria-label="View Vertical Blinds gallery">
+        <div class="swatch"><img src="images/collection/vertical-1.jpg" alt="White vertical blinds across a sliding door" loading="lazy"><span class="count">6 photos</span></div>
+        <div class="product-body"><span class="idx">04 · Vertical</span><h3>Vertical Blinds</h3><p>Ideal for wide windows and sliding doors, with easy, precise light control.</p><span class="more">View Gallery</span></div>
       </article>
-      <article class="product reveal d1">
-        <div class="swatch"><div class="fx wooden"></div><div class="rail"></div></div>
-        <div class="product-body"><span class="idx">05 · Timber</span><h3>Wooden Blinds</h3><p>Natural warmth and timeless texture that elevates any interior.</p><a href="#contact" class="more">Enquire</a></div>
+      <article class="product reveal d1" data-gallery="wooden" tabindex="0" role="button" aria-label="View Wooden Blinds gallery">
+        <div class="swatch"><img src="images/collection/wooden-1.jpg" alt="Wooden blinds above a kitchen sink" loading="lazy"><span class="count">6 photos</span></div>
+        <div class="product-body"><span class="idx">05 · Timber</span><h3>Wooden Blinds</h3><p>Natural warmth and timeless texture that elevates any interior.</p><span class="more">View Gallery</span></div>
       </article>
-      <article class="product reveal d2">
-        <div class="swatch"><div class="fx venetian"></div><div class="rail"></div></div>
-        <div class="product-body"><span class="idx">06 · Aluminium</span><h3>Venetian Blinds</h3><p>Sleek aluminium slats, durable and moisture resistant for kitchens and bathrooms.</p><a href="#contact" class="more">Enquire</a></div>
+      <article class="product wide reveal d2" data-gallery="venetian" tabindex="0" role="button" aria-label="View Venetian Blinds gallery">
+        <div class="swatch"><img src="images/collection/venetian-1.jpg" alt="Aluminium venetian blind in a home office" loading="lazy"><span class="count">6 photos</span></div>
+        <div class="product-body"><span class="idx">06 · Aluminium</span><h3>Venetian Blinds</h3><p>Sleek aluminium slats, durable and moisture resistant for kitchens and bathrooms.</p><span class="more">View Gallery</span></div>
       </article>
-      <article class="product reveal d3">
-        <div class="swatch"><div class="fx curtains"></div><div class="rail"></div></div>
-        <div class="product-body"><span class="idx">07 · Drapery</span><h3>Curtains</h3><p>Soft, flowing fabrics tailored to frame your windows with elegance.</p><a href="#contact" class="more">Enquire</a></div>
-      </article>
+    </div>
+
+    <!-- Gallery lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lbTitle" hidden>
+      <div class="lb-panel">
+        <div class="lb-head">
+          <div><span class="lb-idx" id="lbIdx"></span><h3 id="lbTitle"></h3></div>
+          <button class="lb-close" type="button" aria-label="Close gallery">&times;</button>
+        </div>
+        <div class="lb-stage">
+          <button class="lb-nav prev" type="button" aria-label="Previous photo">&#8249;</button>
+          <img id="lbImg" alt="">
+          <button class="lb-nav next" type="button" aria-label="Next photo">&#8250;</button>
+          <span class="lb-counter" id="lbCounter"></span>
+        </div>
+        <div class="lb-thumbs" id="lbThumbs"></div>
+        <div class="lb-foot"><p id="lbDesc"></p><a href="#contact" class="btn btn-red lb-cta">Get a Free Quote</a></div>
+      </div>
     </div>
   </div>
 </section>
@@ -560,6 +607,86 @@
     window.location.href = `mailto:sales@blindstogo.co.nz?subject=${encodeURIComponent('Free Measure & Quote Request')}&body=${encodeURIComponent(body)}`;
     note.textContent = 'Thank you! Your email app should now open.';
     note.style.color = 'var(--muted)';
+  });
+
+  // Collection gallery lightbox
+  const galleries = {
+    sunscreen: { idx: '01 · Roller', title: 'Sunscreen Roller Blinds', desc: 'Reduce glare and heat while keeping your view. A clean, contemporary look for living areas and offices.', count: 6 },
+    blockout: { idx: '02 · Roller', title: 'Blockout Roller Blinds', desc: 'Total privacy and deep, restful darkness for bedrooms and media rooms.', count: 6 },
+    thermal: { idx: '03 · Roller', title: 'Thermal Blockout', desc: 'Insulating fabrics that keep warmth in through winter and heat out in summer.', images: [4, 2, 3, 5, 6] },
+    vertical: { idx: '04 · Vertical', title: 'Vertical Blinds', desc: 'Ideal for wide windows and sliding doors, with easy, precise light control.', count: 6 },
+    wooden: { idx: '05 · Timber', title: 'Wooden Blinds', desc: 'Natural warmth and timeless texture that elevates any interior.', count: 6 },
+    venetian: { idx: '06 · Aluminium', title: 'Venetian Blinds', desc: 'Sleek aluminium slats, durable and moisture resistant for kitchens and bathrooms.', count: 6 }
+  };
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  const lbThumbs = document.getElementById('lbThumbs');
+  const lbCounter = document.getElementById('lbCounter');
+  let lbList = [], lbPos = 0, lbTitle = '', lbOpener = null;
+
+  const lbShow = i => {
+    lbPos = (i + lbList.length) % lbList.length;
+    lbImg.classList.add('fade');
+    setTimeout(() => {
+      lbImg.src = lbList[lbPos];
+      lbImg.alt = `${lbTitle}, photo ${lbPos + 1}`;
+      lbImg.classList.remove('fade');
+    }, 150);
+    lbCounter.textContent = `${lbPos + 1} / ${lbList.length}`;
+    lbThumbs.querySelectorAll('button').forEach((b, n) => b.classList.toggle('active', n === lbPos));
+    lbThumbs.children[lbPos].scrollIntoView({ block: 'nearest', inline: 'nearest' });
+  };
+
+  const lbOpen = (key, opener) => {
+    const g = galleries[key];
+    const nums = g.images || Array.from({ length: g.count }, (_, n) => n + 1);
+    lbList = nums.map(n => `images/collection/${key}-${n}.jpg`);
+    lbTitle = g.title;
+    lbOpener = opener;
+    document.getElementById('lbIdx').textContent = g.idx;
+    document.getElementById('lbTitle').textContent = g.title;
+    document.getElementById('lbDesc').textContent = g.desc;
+    lbThumbs.innerHTML = lbList.map((src, n) => `<button type="button" aria-label="Show photo ${n + 1}"><img src="${src}" alt="" loading="lazy"></button>`).join('');
+    lbThumbs.querySelectorAll('button').forEach((b, n) => b.addEventListener('click', () => lbShow(n)));
+    lb.hidden = false;
+    document.body.classList.add('lb-lock');
+    requestAnimationFrame(() => lb.classList.add('open'));
+    lbShow(0);
+    lb.querySelector('.lb-close').focus();
+  };
+
+  const lbClose = () => {
+    lb.classList.remove('open');
+    document.body.classList.remove('lb-lock');
+    setTimeout(() => { lb.hidden = true; }, 300);
+    if (lbOpener) lbOpener.focus();
+  };
+
+  document.querySelectorAll('.product[data-gallery]').forEach(card => {
+    card.addEventListener('click', () => lbOpen(card.dataset.gallery, card));
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); lbOpen(card.dataset.gallery, card); }
+    });
+  });
+  lb.querySelector('.lb-close').addEventListener('click', lbClose);
+  lb.querySelector('.prev').addEventListener('click', () => lbShow(lbPos - 1));
+  lb.querySelector('.next').addEventListener('click', () => lbShow(lbPos + 1));
+  lb.querySelector('.lb-cta').addEventListener('click', lbClose);
+  lb.addEventListener('click', e => { if (e.target === lb) lbClose(); });
+  document.addEventListener('keydown', e => {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') lbClose();
+    if (e.key === 'ArrowLeft') lbShow(lbPos - 1);
+    if (e.key === 'ArrowRight') lbShow(lbPos + 1);
+  });
+  let touchX = null;
+  const stage = lb.querySelector('.lb-stage');
+  stage.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+  stage.addEventListener('touchend', e => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 40) lbShow(lbPos + (dx < 0 ? 1 : -1));
+    touchX = null;
   });
 
   document.getElementById('yr').textContent = new Date().getFullYear();
